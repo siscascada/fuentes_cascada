@@ -303,7 +303,7 @@ public class A {
      * Funcion que suma o resta dias a una fecha ingresada
      * @param fecha Parametro tipo String en formato DD/MM/YYYY como fecha inicial
      * @param dias Cantidad de dias que se quiere sumar o restar a la fecha introducida, para restar poner numero en negativo
-     * @return Retorna la fecha con los dias que se hayan sumado o restado
+     * @return Retorna la fecha con los dias que se hayan sumado o restado.
      */
     public static String fechaSumaResta(String fecha,int dias){
           String dt = fecha;  // Fecha enviada por parametro
