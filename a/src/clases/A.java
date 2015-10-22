@@ -283,7 +283,7 @@ public class A {
     /**
      * Funcion que retorna el NUMERO de dia de la semana de la fecha ingresada siendo 1=Domingo,2=Lunes...etc.
      * @param fecha Parametro tipo String que acepta una fecha en formato DD/MM/AAAA
-     * @return Retorna el numero de dia de la semana de la fecha ingresada
+     * @return Retorna el numero de dia de la semana de la fecha ingresada.
      */
     public static Integer obtieneDiaSemana(String fecha){
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
