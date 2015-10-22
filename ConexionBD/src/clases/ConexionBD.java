@@ -335,9 +335,9 @@ public class ConexionBD {
      * @param tipprecio Tipo de precio
      * @return retorna una consulta
      */
-    public static ResultSet precioventa(int tipprecio){
+    public static ResultSet precioVenta(int tipprecio){
         ResultSet consultaprecio = null;
-        String sql="select * from prprecios where pre_codpretip='"+tipprecio+"'";
+        String sql="SELECT * FROM PRPRECIOS WHERE PRE_CODPRETIP='"+tipprecio+"'";
         consultaprecio=ConexionBD.querySelect(sql);
         //PreparedStatement stt= ConexionBD.querySelect(sql);
         //ResultSet rs = stt.executeQuery();
