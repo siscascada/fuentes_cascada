@@ -32,7 +32,7 @@ public class frmCambioDolar extends javax.swing.JFrame {
      */
     public frmCambioDolar(String[] args) {
         initComponents();
-        //txtPrueba.setVisible(false);
+        txtPrueba.setVisible(false);
         llenaTipoCambioDelDia();
         llenaTablaDolar();
         suc=args[3];
