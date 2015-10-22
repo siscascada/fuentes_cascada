@@ -270,7 +270,7 @@ public class A {
      * @param c Parametro tipo char que se obtiene del objeto evt.getKeyChar() dentro de algun evento
      * programado por el desarrollador Ejemplos: KeyTyped,KeyPressed,MouseClicked, etc.
      * @return Retorna TRUE si se ha ingresado un valor numerico,retorna FALSE si 
-     * se introduce cualquier otro caracter
+     * se introduce cualquier otro caracter.
      */
     public static boolean esNumeroEntero(char c){
         if(!Character.isDigit(c)){
