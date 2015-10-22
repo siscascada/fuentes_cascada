@@ -5,7 +5,11 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -60,7 +64,7 @@ public class A {
     /**
      * Funcion que convierte el formato de fecha MM/DD/AAAA al formato DD/MM/AAAA
      * @param fechaMDA en el formato con barras /
-     * @return Retorna la fecha en formato MM/DD/AAAA
+     * @return Retorna la fecha en formato DD/MM/AAAA
      */
     public static String convierte_MDA_a_DMA_barra(String fechaMDA){
         String deliveryDate=fechaMDA;
@@ -138,7 +142,7 @@ public class A {
     /**
      * Funcion que convierte el formato de fecha AAAA-MM-DD al formato DD/MM/AAAA
      * @param fechaAMD en el formato con guiones -
-     * @return Retorna la fecha en formato DD/MM/AAAA
+     * @return Retorna la fecha en formato MM/DD/AAAA
      */
     public static String convierte_AMD_a_MDA_guion(String fechaAMD){
         String deliveryDate=fechaAMD;
@@ -276,4 +280,44 @@ public class A {
         }
     }
     
+    /**
+     * Funcion que retorna el NUMERO de dia de la semana de la fecha ingresada siendo 1=Domingo,2=Lunes...etc.
+     * @param fecha Parametro tipo String que acepta una fecha en formato DD/MM/AAAA
+     * @return Retorna el numero de dia de la semana de la fecha ingresada
+     */
+    public static Integer obtieneDiaSemana(String fecha){
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        Date date;
+        try {
+            date = fmt.parse(fecha);
+             GregorianCalendar cal = new GregorianCalendar();
+            cal.setTime(date);
+            return cal.get(Calendar.DAY_OF_WEEK);
+        } catch (ParseException ex) {
+             A.mensaje("Existio un error en obtieneDiaSemana: "+ ex.getMessage());
+        }
+        return null;
+    }
+    
+    /**
+     * Funcion que suma o resta dias a una fecha ingresada
+     * @param fecha Parametro tipo String en formato DD/MM/YYYY como fecha inicial
+     * @param dias Cantidad de dias que se quiere sumar o restar a la fecha introducida, para restar poner numero en negativo
+     * @return Retorna la fecha con los dias que se hayan sumado o restado
+     */
+    public static String fechaSumaResta(String fecha,int dias){
+          String dt = fecha;  // Fecha enviada por parametro
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(dt));
+            c.add(Calendar.DATE, dias);  // numero de dias para incrementar o restar(-)
+            dt = sdf.format(c.getTime());  // dt es la fecha incrementada o reducida
+            return dt;
+        } catch (ParseException ex) {
+           A.mensaje("Ocurrio un error en fechaSumaResta: "+ex.getMessage());
+        }
+        return null;
+           
+    }
 }
